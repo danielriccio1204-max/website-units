@@ -1,81 +1,248 @@
-/* --- Stile informatica retrò --- */
+/* =========================
+   Stile moderno e professionale
+   ========================= */
+
+:root {
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --surface-alt: #eef2f7;
+    --text: #1f2937;
+    --text-soft: #4b5563;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --border: #dbe3ee;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius: 14px;
+    --max-width: 1100px;
+}
+
+/* Reset base */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: #0d0d0d;       /* nero "monitor" */
-    color: #33ff33;                  /* verde terminale fosforescente */
-    font-family: "Courier New", monospace;
-    margin: 20px;
-    line-height: 1.5;
-
-    /* leggero effetto monitor vecchio */
-    text-shadow: 0 0 4px #33ff33;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
 }
 
-h1, h2, h3 {
-    color: #33ff33;
-    border-bottom: 2px dashed #33ff33;
-    padding-bottom: 5px;
+/* Banner */
+.hero-banner {
+    width: 100%;
+    height: 280px;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+                      url("img/banner.png");
+    background-size: cover;
+    background-position: center;
 }
 
-a {
-    color: #33ff33;
+/* Layout centrale */
+header,
+nav,
+main,
+footer {
+    width: min(92%, var(--max-width));
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.page-title,
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 12px;
+    color: var(--text);
+}
+
+header p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-soft);
+    font-size: 1.05rem;
+}
+
+/* Navigazione */
+nav {
+    margin: 10px auto 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--surface);
+    color: var(--primary);
     text-decoration: none;
-    border-bottom: 1px dotted #33ff33;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+nav a:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Main */
+main {
+    padding-bottom: 50px;
+}
+
+/* Sezioni */
+section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+/* Titoli */
+h2 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: var(--text);
+    border-left: 5px solid var(--primary);
+    padding-left: 12px;
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+}
+
+/* Testo */
+p {
+    margin: 0 0 14px;
+    color: var(--text-soft);
+}
+
+strong,
+b {
+    color: var(--text);
+}
+
+/* Link */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #00ff00;
-    text-shadow: 0 0 6px #00ff00;
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
+/* Liste */
+ul,
+ol {
+    padding-left: 20px;
+    margin: 12px 0;
+    color: var(--text-soft);
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Immagini */
 img {
-    width: 250px;
-    border: 2px solid #33ff33;
-    padding: 5px;
-    background-color: #000;
-    box-shadow: 0 0 10px #33ff33;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 18px 0;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
-/* Liste in stile retrò */
-ul, ol {
-    border-left: 2px solid #33ff33;
-    padding-left: 15px;
+/* Immagine profilo più armoniosa */
+.local-image {
+    max-width: 320px;
 }
 
-/* Piccolo effetto scanline per atmosfera retrò (non invasivo) */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 255, 0, 0.03) 0,
-        rgba(0, 255, 0, 0.03) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    opacity: 0.4;
-}
-:root{
-  --retro-bg: #000;
-  --retro-neon: #39ff14; /* verde neon */
-  --retro-fg: #c8ffc8;
+/* Footer */
+footer {
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    padding: 10px 0 40px;
 }
 
-
-/* Layout più compatto su mobile */
-@media (max-width: 600px){
-  .gdpr-retro{ font-size: 14px; padding: 12px 14px; }
-  .gdpr-retro button{ width: 100%; margin-right: 0; }
+/* Cookie banner, se presente */
+.gdpr-retro,
+#cookiebanner {
+    font-family: Arial, Helvetica, sans-serif;
 }
-.hero-banner {
-    width: 100%;
-    height: 300px; /* puoi cambiare l'altezza */
-    background-image: url("img/banner.png");
-    background-size: cover;      /* riempie tutto */
-    background-position: center; /* centra l’immagine */
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 200px;
+    }
+
+    header {
+        padding: 28px 0 16px;
+    }
+
+    section {
+        padding: 22px 18px;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav a {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-banner {
+        height: 160px;
+    }
 }
